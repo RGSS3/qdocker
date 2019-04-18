@@ -8,7 +8,7 @@ call :run-qemu
 exit /b
 
 :run-qemu
-%QEMU.EXE% -net nic -net user,hostfwd=tcp::5022-:22 -cpu max -cdrom %DOCKER.ISO% -m 4096M -boot d %*
+%QEMU.EXE% -net nic -net user,hostfwd=tcp::5022-:22 -cdrom %DOCKER.ISO% -m 4096M -boot d %*
 exit /b
 :create-disk
 call :run-qemu

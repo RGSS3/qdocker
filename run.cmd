@@ -12,7 +12,7 @@ call :run-qemu
 exit /b
 
 :run-qemu
-%QEMU.EXE% -net nic -net user,hostfwd=tcp::5022-:22 -cpu max -m 2048M -drive format=raw,file=%HDA% -cdrom %DOCKER.ISO%  -boot d %*
+%QEMU.EXE% -net nic -net user,hostfwd=tcp::5022-:22 -m 2048M -drive format=raw,file=%HDA% -cdrom %DOCKER.ISO%  -boot d %*
 exit /b
 :create-disk
 %QEMU-IMG.EXE% create -f raw %HDA% 8G 

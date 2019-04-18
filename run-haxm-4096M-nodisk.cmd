@@ -4,18 +4,13 @@ set QEMU.EXE=%QEMU%qemu-system-x86_64.exe
 set QEMU-IMG.EXE=%QEMU%qemu-img.exe
 set DOCKER.ISO=%~dp0boot2docker.iso
 set HDA=%~dp0hda.raw
-if not exist %HDA% (
-  call :create-disk
-  exit /b
-)
 call :run-qemu
 exit /b
 
 :run-qemu
-%QEMU.EXE% -machine accel=hax -net nic -net user,hostfwd=tcp::5022-:22 -m 2048M -drive format=raw,file=%HDA% -boot d -cdrom %DOCKER.ISO% 
+%QEMU.EXE% -accel accel=hax -net nic -net user,hostfwd=tcp::5022-:22 -cdrom %DOCKER.ISO% -m 4096M -boot d %*
 exit /b
 :create-disk
-%QEMU-IMG.EXE% create -f raw %HDA% 8G 
 call :run-qemu
 exit /b
 

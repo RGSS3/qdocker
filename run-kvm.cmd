@@ -12,7 +12,7 @@ call :run-qemu
 exit /b
 
 :run-qemu
-%QEMU.EXE% -enable-kvm -net nic -net user,hostfwd=tcp::5022-:22 -cpu max -m 2048M -drive format=raw,file=%HDA% -boot d -cdrom %DOCKER.ISO% 
+%QEMU.EXE% -enable-kvm -net nic -net user,hostfwd=tcp::5022-:22 -m 2048M -drive format=raw,file=%HDA% -boot d -cdrom %DOCKER.ISO% 
 exit /b
 :create-disk
 %QEMU-IMG.EXE% create -f raw %HDA% 8G 
