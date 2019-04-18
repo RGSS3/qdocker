@@ -13,6 +13,7 @@ if not "%QDOCKER.USEDISK%" == "1" (
     exit /b
   )
 )
+echo %*
 call :run-qemu %*
 exit /b
 

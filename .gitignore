@@ -4,3 +4,5 @@ qdocker.zip
 qdocker.7z
 *.agda
 boot2docker.iso
+qemu.2019.2/
+qemu-setup.exe
