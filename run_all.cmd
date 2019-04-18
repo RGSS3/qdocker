@@ -1,7 +1,5 @@
 @echo off
-if not exist boot2docker.iso (
-  powershell -c "[System.Net.ServicePointManager]::SecurityProtocol=[System.Net.SecurityProtocolType]::Tls12;Invoke-WebRequest -uri https://github.com/boot2docker/boot2docker/releases/download/v18.09.5/boot2docker.iso -OutFile boot2docker.iso"
-)
+call check_components.cmd
 set QEMU=%~dp0qemu.2019.2\
 set QEMU.EXE=%QEMU%qemu-system-x86_64.exe
 set QEMU-IMG.EXE=%QEMU%qemu-img.exe
